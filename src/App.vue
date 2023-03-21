@@ -30,8 +30,8 @@ const state = reactive( {
 
 async function onSubmit() {
   state.saving = true;
-  await axios.post( 'https://api.aws.groza.app/users', {
-    name: state.name
+  await axios.post( 'https://api.metrics-playground.click/users', {
+    name: state.name,jira_id:"123"
   } );
   state.saving = false;
   loadUsers();
@@ -39,7 +39,7 @@ async function onSubmit() {
 
 async function loadUsers() {
   state.loading = true;
-  const {data} = await axios.get( 'https://api.aws.groza.app/users' );
+  const {data} = await axios.get( 'https://api.metrics-playground.click/users' );
   state.users = data || [];
   state.loading = false;
 }
